@@ -15,7 +15,7 @@ const db = mongoose.connection
 db.on('error',error=>console.error(error))
 db.once('open',()=>console.log("database connected"))
 
-const port = 3000
+
 
 app.set("view engine","ejs")
 app.set("views",__dirname+"/views")
@@ -27,7 +27,8 @@ app.use(bodyParser.urlencoded({limit:'10mb',extended:false}))
 app.use('/',indexRouter)
 app.use('/authors',authorRouter)
 
+var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(server_port, () =>{
+    console.log('Listening on port %d', server_port);
+});
