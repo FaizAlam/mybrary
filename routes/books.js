@@ -6,12 +6,20 @@ const fs = require('fs')
 const Book = require('../models/book')
 const Author = require('../models/author')
 const { render } = require('ejs')
+
 const uploadPath = path.join('public',Book.coverImageBasePath)
 
 const imageMimeTypes = ['image/jpeg','image/png','image/gif']
 
+//Set storage engine
+const storage = multer.diskStorage({
+    destination:'./public/uploads/bookCovers',
+    filename:function(req,file,cb){
+        cb(null,file.fieldname + '-' + Date.now()+path.extname(file.originalname));
+    }
+})
 const upload = multer({
-    dest: uploadPath,
+    storage: storage,
     fileFilter:(req,file,callback)=>{
         callback(null,imageMimeTypes.includes(file.mimetype))
     }
