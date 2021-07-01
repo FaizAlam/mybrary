@@ -1,10 +1,17 @@
-<div>
-    <label>Title</label>
-    <input type="text" name="title" value="<%= book.title %>">
+<div style="
+margin: 2em 0px;
+max-width: 620px;
+">
+  
+  <div class="input-group mb-3"> 
+    <span class="input-group-text" id="basic-addon1">Title</span>
+    <input type="text" name="title" class="form-control" value="<%= book.title %>">
   </div>
-  <div>
-    <label>Author</label>
-    <select name="author">
+  
+
+  <div class="input-group mb-3"> 
+    <span class="input-group-text" id="basic-addon1">Author</span>
+    <select name="author" class="form-control" >
     <% authors.forEach(author => { %>
       <% if (author.id === book.author) { %>
         <option selected label="<%= author.name %>" value="<%= author.id %>">
@@ -14,21 +21,31 @@
     <% }) %>
     </select>
   </div>
-  <div>
-    <label>Publish Date</label>
-    <input type="date" name="publishDate"
+
+
+  <div class="input-group mb-3"> 
+    <span class="input-group-text" id="basic-addon1">Date</span>
+    <input type="date" class="form-control"  name="publishDate"
           value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
   </div>
-  <div>
-    <label>Page Count</label>
-    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
+
+
+  <div class="input-group mb-3"> 
+    <span class="input-group-text" id="basic-addon1">Page Count</span>
+    <input class="form-control" type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
   </div>
+
+
+
+ <div class="input-group mb-3"> 
+    <span class="input-group-text" id="basic-addon1">Cover</span>
+    <input class="form-control"  type="file" name="cover" class="form-control">
   </div>
-  <div>
-    <label>Cover</label>
-    <input type="file" name="cover">
+ 
+  
+  <div class="input-group "> 
+    <span class="input-group-text" id="basic-addon1">Description</span>
+    <textarea class="form-control" name="description"><%= book.description %></textarea>
   </div>
-  <div>
-    <label>Description</label>
-    <textarea name="description"><%= book.description %></textarea>
-  </div>
+
+</div>  

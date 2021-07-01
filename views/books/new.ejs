@@ -3,8 +3,9 @@
 <form action="/books" method="POST" enctype="multipart/form-data">
    
     <%- include('_form_fields')  %> 
-
-    <a href="/books">Cancel</a>
-    <button type="submit">Add</button>
+    
+    <button type="button" class="btn btn-outline-danger"><a href="/books" style="    color: #dd3444;
+        text-decoration: none;">Cancel</a></button>
+    <button type="submit" class="btn btn-outline-success">Add</button>
     
 </form>
