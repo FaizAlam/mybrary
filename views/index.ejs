@@ -1,8 +1,15 @@
 <h2>Recently Added</h2>
 
-<div>
+<div style="display: flex;">
     <%books.forEach(book=>{ %>
-        <img src="<%=book.coverImagePath %> " alt="" width="100px" height="150px"> 
+        <div class="card" style="width: 10rem;
+        margin-right: 1em;">
+            <img src="<%=book.coverImagePath %>" class="card-img-top" alt="Book" style="padding: 5px;">
+            <div class="card-body">
+              <h5 class="card-title"><%= book.title%> </h5>
+
+            </div>
+        </div>
     
     <% }) %> 
 </div>
