@@ -38,8 +38,10 @@ max-width: 620px;
             <img src="<%=book.coverImagePath %>" class="card-img-top" alt="Book" style="padding: 5px;">
             <div class="card-body">
               <h5 class="card-title"><%= book.title%> </h5>
-
             </div>
+            <form method="POST" action="/books/<%=book._id%>?_method=DELETE" >
+                <button class="btn btn-outline-danger">Delete</button>
+            </form>
         </div>
     
     <% }) %> 

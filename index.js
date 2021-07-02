@@ -8,7 +8,7 @@ const expressLayouts = require('express-ejs-layouts')
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const bookRouter = require('./routes/books')
-
+const methodOveride = require('method-override')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
@@ -26,6 +26,7 @@ app.use(express.static('./public'))
 app.use(expressLayouts)
 app.use(express.static('public '))
 app.use(bodyParser.urlencoded({limit:'10mb',extended:false}))
+app.use(methodOveride('_method'))
 
 
 app.use('/',indexRouter)

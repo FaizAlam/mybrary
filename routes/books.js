@@ -82,6 +82,21 @@ router.post('/',upload.single('cover'), async (req,res)=>{
 })
 
 
+//delete books
+
+router.delete('/:id',(req,res)=>{
+    Book.findByIdAndDelete(req.params.id,(err,book)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("delete: ",book)
+            res.redirect('/books')
+        }
+    })
+})
+
+
 function removeBookCover(fileName) {
     fs.unlink(path.join(uploadPath, fileName), err => {
       if (err) console.error(err)
